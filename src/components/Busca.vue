@@ -2,7 +2,7 @@
     <div>
         <div class="container">
             <div class="row">
-                <h1>teste</h1>
+                <h1>Novidades chegaram!</h1>
             </div>
         </div>
     </div>
