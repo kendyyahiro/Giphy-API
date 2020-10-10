@@ -49,4 +49,7 @@ export default {
         bottom:0;
         left:0;
     }
+    .theme--dark.v-footer{
+      background-color: #34abbd !important;
+    }
 </style>

@@ -1,10 +1,6 @@
 <template>
-    <div>
-        <div class="container">
-            <div class="row">
-                <h1>Novidades chegaram!</h1>
-            </div>
-        </div>
+  <div id="app">
+    <h1>Novidades chegaram!</h1>
     </div>
 </template>
 <script>

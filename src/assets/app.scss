@@ -10,3 +10,50 @@ body{
 .input-search-relative{
     position: relative;
 }
+.tamanho-padrao-img{
+    width:100%;
+    max-width: 350px;
+  }
+  .espacamento-melhorado{
+    padding-bottom: 40px;
+  }
+  .organiza-gifs-search{
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+  .theme--light.v-application{
+    background: #242424 !important;
+  }
+  .theme--light.v-input input, .theme--light.v-input textarea{
+    color: #ffffffcc;
+  }
+  .theme--light.v-label {
+      color: #e9ecef !important;
+      font-size: 23px;
+  }
+  .theme--light.v-input input, .theme--light.v-input textarea {
+      /* color: rgba(0, 0, 0, 0.87); */
+      color: #e9ecef !important;
+  }
+  .v-image__image--contain {
+      background-size: contain;
+      width: 38% !important;
+  }
+  .v-responsive__sizer {
+        padding-bottom: 5.9677% !important;
+    }
+
+    
+h1 {
+    font-family: cursive;
+    font-size: 35px;
+    color: #fff;
+}
+
+@media screen and(max-wdith:425px){
+    .v-sheet.v-card {
+        min-width: 65% !important;
+    }
+}
