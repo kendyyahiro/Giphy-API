@@ -1,37 +1,32 @@
 <template>
   <div>
-    <v-footer class="footer navbar-fixed-bottom" dark padless>
-      <v-card flat tile class="indigo lighten-1 white--text text-center">
-        <v-card-text>
-          <v-btn
-            v-for="icon in icons"
-            :key="icon"
-            class="mx-4 white--text"
-            icon
-          >
-            <v-icon size="24px">
-              {{ icon }}
-            </v-icon>
-          </v-btn>
-        </v-card-text>
-
-        <v-card-text class="white--text pt-0">
-          Phasellus feugiat arcu sapien, et iaculis ipsum elementum sit amet.
-          Mauris cursus commodo interdum. Praesent ut risus eget metus luctus
-          accumsan id ultrices nunc. Sed at orci sed massa consectetur dignissim
-          a sit amet dui. Duis commodo vitae velit et faucibus. Morbi vehicula
-          lacinia malesuada. Nulla placerat augue vel ipsum ultrices, cursus
-          iaculis dui sollicitudin. Vestibulum eu ipsum vel diam elementum
-          tempor vel ut orci. Orci varius natoque penatibus et magnis dis
-          parturient montes, nascetur ridiculus mus.
-        </v-card-text>
-
-        <v-divider></v-divider>
-
-        <v-card-text class="white--text">
-          {{ new Date().getFullYear() }} — <strong>Vuetify</strong>
-        </v-card-text>
-      </v-card>
+    <v-footer dark padless>
+      <v-container>
+        <v-row>
+          <v-col v-for="user in social_medias" :key="user.name" md6>
+            <v-list dark>
+              <v-subheader>{{ user.name }}</v-subheader>
+              <v-list-item v-for="item in user.data" :key="item.name">
+                <v-list-item-icon>
+                  <v-icon :color="item.color" v-text="item.icon"></v-icon>
+                </v-list-item-icon>
+                <v-list-item-content>
+                  <a class="pl-2" :href="item.link">{{ item.name }}</a>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-col>
+        </v-row>
+        <v-row md12 class="text-center">
+          <v-col md12>
+            <p>
+              Criado para a disciplina de Técnicas Avançadas de Desenvolvimento
+              de Sistemas.
+            </p>
+            <p>2020 — {{ new Date().getFullYear() }}</p>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-footer>
   </div>
 </template>
@@ -39,17 +34,30 @@
 <script>
 export default {
   data: () => ({
-    icons: ["mdi-facebook", "mdi-twitter", "mdi-linkedin", "mdi-instagram"],
+    social_medias: [
+      {
+        name: "Mateus Ragazzi",
+        data: [
+          {
+            name: "mateusragazzi.b@gmail.com",
+            icon: "mdi-email",
+            link: "malito:mateusragazzi.b@gmail.com",
+            color: "pink",
+          },
+        ],
+      },
+      {
+        name: "Fernando Kendy",
+        data: [
+          {
+            name: "yahirokendy@gmail.com",
+            icon: "mdi-email",
+            link: "malito:yahirokendy@gmail.com",
+            color: "pink",
+          },
+        ],
+      },
+    ],
   }),
 };
 </script>
-
-<style scoped>
-    .footer {
-        bottom:0;
-        left:0;
-    }
-    .theme--dark.v-footer{
-      background-color: #34abbd !important;
-    }
-</style>

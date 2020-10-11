@@ -1,29 +1,35 @@
 <template>
   <div id="app">
-    <Nav titulo="Giphy API"></Nav>
+    <Nav></Nav>
     <v-app>
       <v-container>
         <v-layout row wrap>
-          <Busca></Busca>
-          <v-flex md11 lg11 xs10 class="espacamento-melhorado">
-          <v-text-field
-            label="Divirta-se!"
-            v-model="search"
-            placeholder="Divirta-se"
-            hide-details="auto"
-          >
-          </v-text-field>
+          <v-flex md12 lg12 xs12 pl-5 pr-5>
+            <v-text-field
+              label="O que você deseja buscar?"
+              type="text"
+              v-model="search"
+              clearable
+              dark
+              :append-outer-icon="'mdi-send'"
+              @click:append-outer="fetchGifs"
+            >
+            </v-text-field>
           </v-flex>
-            <v-btn v-on:click="fetchGifs" elevation="2"> OK </v-btn>
-          <div v-for="gif in gifs" v-bind:key="gif" class="organiza-gifs-search">
-              <Grid :show="false" :src="gif.images.original.url" :titulo="gif.username" :descricao="gif.slug">
-              </Grid>
-              <!-- <img class="tamanho-padrao-img" :src="gif.images.original.url" alt="" /> -->
-          </div>
-        <br />
+          <v-flex
+            md4 lg4 xs4 pb-8
+            v-for="gif in gifs"
+            v-bind:key="gif.images.original.url">
+            <Grid
+              :show="false"
+              :src="gif.images.original.url"
+              :titulo="gif.username"
+              :descricao="gif.slug"
+            >
+            </Grid>
+          </v-flex>
         </v-layout>
       </v-container>
-
     </v-app>
     <Footer></Footer>
   </div>
@@ -31,7 +37,6 @@
 
 <script>
 import Nav from "./components/Nav";
-import Busca from "./components/Busca";
 import Footer from "./components/Footer";
 import Grid from "./components/Grid";
 
@@ -39,9 +44,8 @@ export default {
   name: "App",
   components: {
     Nav,
-    Busca,
     Footer,
-    Grid
+    Grid,
   },
   data() {
     return {
@@ -53,19 +57,19 @@ export default {
   },
   computed: {
     eventGifs: () => {
-      return this.gifs.filter(function(gif){
-        return gif.index < 4
-      })
-    }
+      return this.gifs.filter(function (gif) {
+        return gif.index < 4;
+      });
+    },
   },
   methods: {
     fetchGifs: function () {
       var url = "";
       if (this.search) {
-        console.log(this.search)
+        console.log(this.search);
         url = `${this.apiUrl}search?q=${this.search}&rating=g&api_key=${this.apiKey}`;
       } else {
-        console.log()
+        console.log();
         url = `${this.apiUrl}trending?api_key=${this.apiKey}`;
       }
 
@@ -104,5 +108,4 @@ export default {
 </script>
 
 <style>
-
 </style>
